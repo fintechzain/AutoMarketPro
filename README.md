@@ -25,7 +25,7 @@
 - ![Email Tool](static/screenshots/email.png)
 - ![AI Generator](static/screenshots/content_generator.png)
 - ![Analytics](static/screenshots/analytics.png)
-- ![Analytics Chart](static/screenshots/analytics_visuals.png)
+- ![Analytics Chart](static/screenshots/analytics_visual.png)
 
 ---
 
@@ -77,8 +77,7 @@ automarketpro/
 ├── data/           # Uploaded files, lead exports
 ├── app.py          # Main Flask app
 └── README.md
-🌐 Live Demo (Optional)
-If deployed to Replit / Render, add here:
+🌐 Live Demo 
 
 🔗 Live AutoMarketPro
 
@@ -94,7 +93,8 @@ Automation lovers
 ✍️ Author
 Zain Farooq
 Finance + Automation | Freelancing with Python & AI
-GitHub · Fiverr · FintechZain
+GitHub · fintechzain
+Fiverr · fintechzain
 
 📌 Disclaimer
 AutoMarketPro uses OpenAI's GPT via API. You must have your own OpenAI API key to use the AI tools.
