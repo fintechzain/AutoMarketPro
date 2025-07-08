@@ -21,12 +21,11 @@
 
 ## 📸 Screenshots
 
-> Replace these with actual images or GIFs from your project
-
 - ![Dashboard Screenshot](static/screenshots/dashboard.png)
-- ![Email Tool](static/screenshots/email_tool.png)
+- ![Email Tool](static/screenshots/email.png)
 - ![AI Generator](static/screenshots/content_generator.png)
-- ![Analytics Chart](static/screenshots/analytics_chart.png)
+- ![Analytics](static/screenshots/analytics.png)
+- ![Analytics Chart](static/screenshots/analytics_visuals.png)
 
 ---
 
