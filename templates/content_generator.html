@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>AI Content Generator</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Prompt / Topic:</label>
+            <input type="text" name="prompt" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Target Audience:</label>
+            <input type="text" name="audience" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Tone:</label>
+            <select name="tone" class="form-control">
+                <option>Professional</option>
+                <option>Casual</option>
+                <option>Witty</option>
+                <option>Empathetic</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Platform:</label>
+            <select name="platform" class="form-control">
+                <option>Instagram</option>
+                <option>LinkedIn</option>
+                <option>Email</option>
+                <option>X (formerly Twitter)</option>
+                <option>Ad Copy</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Generate</button>
+    </form>
+
+    {% if result %}
+    <hr>
+    <h5 class="mt-4">📢 Generated Content</h5>
+    <div class="card border-success mb-4">
+        <div class="card-body bg-light">
+            <pre style="white-space: pre-wrap;">{{ result }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

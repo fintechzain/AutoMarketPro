@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>AI Customer Persona Builder</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Product / Service:</label>
+            <input type="text" name="product" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Industry:</label>
+            <input type="text" name="industry" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Target Audience:</label>
+            <input type="text" name="audience" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-info mt-3">Generate Persona</button>
+    </form>
+
+    {% if result %}
+    <hr>
+    <h5 class="mt-4">🎯 Generated Persona</h5>
+    <div class="card border-info mb-4">
+        <div class="card-body bg-light">
+            <pre style="white-space: pre-wrap;">{{ result }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

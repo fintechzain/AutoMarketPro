@@ -1,0 +1,31 @@
+.dark-toggle-wrapper {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1050;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+body.dark-mode .dark-toggle-wrapper {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.dark-toggle-wrapper label {
+    margin: 0;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .dark-toggle-wrapper {
+        top: auto;
+        bottom: 12px;
+        right: 12px;
+    }
+}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Social Media Auto Poster</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Platform:</label>
+            <select name="platform" class="form-control">
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>LinkedIn</option>
+                <option>X (formerly Twitter)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Post Content:</label>
+            <textarea name="content" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>Optional Image:</label>
+            <input type="file" name="image" class="form-control-file">
+        </div>
+        <div class="form-group">
+            <label>Schedule Time:</label>
+            <input type="datetime-local" name="schedule_time" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Schedule Post</button>
+    </form>
+
+    <hr>
+    <h4 class="mt-4">Scheduled Posts</h4>
+    {% for post in posts %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <strong>{{ post.platform }}</strong> — {{ post.schedule_time }}<br>
+                <p>{{ post.content }}</p>
+                {% if post.image %}
+                    <img src="{{ url_for('static', filename='uploads/' ~ post.image) }}" width="150">
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

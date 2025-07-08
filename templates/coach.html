@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>AI Marketing Coach</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Ask a Question:</label>
+            <input type="text" name="question" class="form-control" required placeholder="e.g. How can I grow on Instagram as a freelancer?">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Get Advice</button>
+    </form>
+
+    {% if answer %}
+    <hr>
+    <h5 class="mt-4">🤖 AI Response</h5>
+    <div class="card border-primary mb-4">
+        <div class="card-body bg-light">
+            <pre style="white-space: pre-wrap;">{{ answer }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

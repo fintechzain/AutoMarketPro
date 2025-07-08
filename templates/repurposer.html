@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Content Repurposer</h2>
+
+    <form method="POST">
+        <div class="form-group">
+            <label>Original Content:</label>
+            <textarea name="content" class="form-control" rows="4" required>{{ original_content }}</textarea>
+        </div>
+
+        <div class="form-group mt-3">
+            <label>Select formats to repurpose into:</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="formats" value="tweet" id="tweet"
+                       {% if 'tweet' in selected_formats %}checked{% endif %}>
+                <label class="form-check-label" for="tweet">Tweet Thread</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="formats" value="linkedin" id="linkedin"
+                       {% if 'linkedin' in selected_formats %}checked{% endif %}>
+                <label class="form-check-label" for="linkedin">LinkedIn Post</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="formats" value="email" id="email"
+                       {% if 'email' in selected_formats %}checked{% endif %}>
+                <label class="form-check-label" for="email">Email Snippet</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="formats" value="instagram" id="instagram"
+                       {% if 'instagram' in selected_formats %}checked{% endif %}>
+                <label class="form-check-label" for="instagram">Instagram Caption</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-warning mt-3">Repurpose</button>
+    </form>
+
+    {% if outputs %}
+    <hr>
+    <h4 class="mt-4">Repurposed Content</h4>
+    {% for key, text in outputs.items() %}
+        <div class="card border-secondary mb-3">
+            <div class="card-header bg-secondary text-white font-weight-bold text-capitalize">
+                {{ key.replace('_', ' ') }}
+            </div>
+            <div class="card-body bg-light">
+                <pre style="white-space: pre-wrap;">{{ text }}</pre>
+            </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

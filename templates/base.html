@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoMarketPro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        .dark-mode .alert {
+            background-color: #2c2c2c;
+            color: #f8f9fa;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255,255,255,.1);
+        }
+
+        .form-check-label {
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .form-check.form-switch {
+                margin-left: auto;
+                margin-right: 1rem;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">AutoMarketPro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/email/">Email</a></li>
+            <li class="nav-item"><a class="nav-link" href="/content/">Content Generator</a></li>
+            <li class="nav-item"><a class="nav-link" href="/poster/">Auto Poster</a></li>
+            <li class="nav-item"><a class="nav-link" href="/repurpose/">Repurposer</a></li>
+            <li class="nav-item"><a class="nav-link" href="/persona/">Persona</a></li>
+            <li class="nav-item"><a class="nav-link" href="/analytics/">Analytics</a></li>
+            <li class="nav-item"><a class="nav-link" href="/coach/">Coach</a></li>
+            <li class="nav-item"><a class="nav-link" href="/leads/">Leads</a></li>
+        </ul>
+    </div>
+    <div class="form-check form-switch text-light ml-3">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+        <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+    </div>
+</nav>
+
+<div class="container mt-3">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} mt-2">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+{% block content %}{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const toggle = document.getElementById("darkModeToggle");
+    const isDark = localStorage.getItem("darkMode") === "true";
+
+    if (isDark) {
+        document.body.classList.add("dark-mode");
+        toggle.checked = true;
+    }
+
+    toggle.addEventListener("change", function () {
+        if (this.checked) {
+            document.body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "true");
+        } else {
+            document.body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "false");
+        }
+    });
+</script>
+</body>
+</html>
